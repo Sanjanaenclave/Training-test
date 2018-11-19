@@ -1,4 +1,4 @@
-package Trainingjava;
+package newproject;
 import java.util.*;
 
 
@@ -10,29 +10,34 @@ public class Testonezero {
 
         if (num > 0) {
             // An array to mark all the visited nodes
+        	// num is the array size
             boolean[] visit = new boolean[num];
             Arrays.fill(visit, false);
 
-           
+            // The queue used by BFS
             Queue<Node> queue = new ArrayDeque<>();
 
-            
+            // Add the first number 1 and mark it visited
             queue.add(new Node(true, 1 % num, null));
             visit[1 % num] = true;
-
             
+            // The final destination node which represents the answer
             Node destNode = null;
 
             while (!queue.isEmpty()) {
                 // Get the next node from the queue
                 Node currNode = queue.remove();
+                
+                
                 System.out.println(currNode.val);
                 if (currNode.val == 0) {
                     // We have reached a valid multiple of num
                     destNode = currNode;
                     break;
                 } else {
-                    
+                    // Visit the next 2 neighbors
+                    // Append 0 - (currNode.val * 10)
+                    // Append 1 - (currNode.val * 10) + 1
 
                     // Append a '0'
                     int val1 = (currNode.val * 10) % num;
@@ -50,7 +55,7 @@ public class Testonezero {
                 }
             }
 
-            // StringBuilder objects can be modified
+            // Trace the path from destination to source
             if (destNode == null) {
                 throw new IllegalStateException("Result should not be null");
             } else {
@@ -67,13 +72,13 @@ public class Testonezero {
         return result;
     }
 
-    // Node means digits appended
+    // Node represents every digit being appended in the decision tree
     private static class Node {
-        
+        // True if '1', false otherwise (i.e. '0')
         public final boolean isDigitOne;
-        
+        // The number represented in the tree modulo the input number
         public final int val;
-        
+        // The parent node in the tree
         public final Node parent;
 
         public Node(boolean isDigitOne, int val, Node parent) {
@@ -84,10 +89,10 @@ public class Testonezero {
     }
 
     public static void main(String[] args) {
-    	Scanner ss = new Scanner(System.in);
-		System.out.print("Enter i :");
-        int num = ss.nextInt();
+    	Scanner input = new Scanner(System.in);
+		System.out.print("Enter the number :");
+        int num = input.nextInt();
         
-        System.out.println("Smallest multiple using only 0s and 1s as digits: " + Testonezero.multiple(num));
+        System.out.println("Smallest multiple having 0 and 1 digits is: " + Testonezero.multiple(num));
     }
 }
