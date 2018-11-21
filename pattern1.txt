@@ -1,0 +1,19 @@
+var number=10;
+var starString="";
+var numCount=1;
+var rowCount=0;
+while(numCount<=10){
+   var outputString="";
+    outputString+=numCount;
+ let numberCount=0;
+ while(numberCount<rowCount){
+     numCount++;
+     outputString+=starString;
+     outputString+=numCount;
+     numberCount++;
+     }
+ console.log(outputString);
+ starString+='*';
+ rowCount++;
+ numCount++;
+}

@@ -1,0 +1,14 @@
+let fibOne=0;
+let fibTwo=1;
+let fibThree;
+
+console.log(fibOne);
+console.log(fibTwo);
+let n=1;
+while(n<50){
+  fibThree=fibOne+fibTwo;
+  fibOne=fibTwo;
+  fibTwo=fibThree;
+  console.log(fibThree);
+  n++;
+}

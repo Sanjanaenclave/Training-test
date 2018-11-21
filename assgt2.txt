@@ -1,0 +1,21 @@
+let fibOne=0;
+let fibTwo=1;
+let fibThree;
+
+let result=fibOne +'(Even),'+ fibTwo+'(Odd),';
+let n=1;
+let outputArray=[];
+while(n<50){
+  fibThree=fibOne+fibTwo;
+  fibOne=fibTwo;
+  fibTwo=fibThree;
+  if(fibThree%2==0)
+  outputArray[n-1]=fibThree+'(Even)'
+  else
+  outputArray[n-1]=fibThree+'(Odd)'
+
+  n++;
+}
+
+result+=outputArray.join(',');
+console.log(result)
